@@ -6,6 +6,11 @@ name: default
 steps:
 - name: greeting
   image: golang:1.12
+  environment:
+    USERNAME:
+      from_secret: name
+    PASSWORD:
+      from_secret: pass
   commands:
   - go build
   - go test
